@@ -12,8 +12,13 @@ let g:relativemode = 1
 
 " Enables relative numbers.
 function! EnableRelativeNumbers()
-  set number
-  set relativenumber
+  if v:version >= 704
+    set relativenumber
+    set number
+  else
+    set nonumber
+    set relativenumber
+  endif
 endfunc
 
 " Disables relative numbers.
